@@ -6,10 +6,10 @@
 <%
 	request.setCharacterEncoding("euc_kr");
 	String data = request.getParameter("inputData");
-	String path = 
+	String path =
 		application.getRealPath(application.getInitParameter("dataPath"));
-	
-	
+
+
 	if(data != null) {
 		FileWriter fw = null;
 		PrintWriter pw = null;
@@ -33,13 +33,4 @@
 %>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
+    

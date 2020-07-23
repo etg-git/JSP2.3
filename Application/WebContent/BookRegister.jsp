@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>책 어플리케이션</title>
+<title>책 占쏙옙占시몌옙占쏙옙占싱쇽옙</title>
 </head>
 <%
 	request.setCharacterEncoding("euc_kr");
 	Enumeration<String> names = request.getParameterNames();
 	String path = application.getRealPath(application.getInitParameter("dataPath"));
-	
+
 	Vector<String> valueList = new Vector<String>();
 	while (names.hasMoreElements()) {
 		String value = request.getParameter(names.nextElement());
@@ -41,16 +41,16 @@
 			}
 		}
 	}
-	
+
 	FileReader fr = null;
 	BufferedReader br = null;
-	
+
 	Vector<String> list = new Vector<String>();
 	try {
 		fr = new FileReader(path);
 		br = new BufferedReader(fr);
 		String line = null;
-	
+
 		while ((line = br.readLine()) != null) {
 			list.add(line);
 		}
@@ -72,13 +72,13 @@
 
 <body>
 	<form action="BookRegister.jsp" method="POST">
-		제목 : <input type="text" name="title" /> <br> 저자 : <input
-			type="text" name="author" /> <br> 가격 : <input type="text"
-			name="price" /> <br> 발행일 <br> <input type="text"
-			name="year" width=10px />년 <input type="text" name="month" />월 <input
-			type="text" name="day" />일 <br> 
-			
-			<input type="submit" value="등록" />
+		占쏙옙占쏙옙 : <input type="text" name="title" /> <br> 占쏙옙占쏙옙 : <input
+			type="text" name="author" /> <br> 占쏙옙占쏙옙 : <input type="text"
+			name="price" /> <br> 占쏙옙占쏙옙占쏙옙 <br> <input type="text"
+			name="year" width=10px />占쏙옙 <input type="text" name="month" />占쏙옙 <input
+			type="text" name="day" />占쏙옙 <br>
+
+			<input type="submit" value="占쏙옙占쏙옙" />
 	</form>
 
 	<br>
@@ -86,14 +86,14 @@
 	<br>
 	<br>
 	<br>
-	
+
 	<table border="1" width= "80%">
 		<thead>
 			<tr>
-				<th>제목</th>
-				<th>저자</th>
-				<th>가격</th>
-				<th>발행일</th>
+				<th>占쏙옙占쏙옙</th>
+				<th>占쏙옙占쏙옙</th>
+				<th>占쏙옙占쏙옙</th>
+				<th>占쏙옙占쏙옙占쏙옙</th>
 			</tr>
 		</thead>
 
@@ -108,15 +108,15 @@
 						StringTokenizer st = new StringTokenizer(list.get(i));
 						String title = st.nextToken();
 						String author = st.nextToken();
-						String price = st.nextToken() + "원";
-						String date = st.nextToken() + "년 " + st.nextToken() + "월 " + st.nextToken() + "일";
-				%>	
+						String price = st.nextToken() + "占쏙옙";
+						String date = st.nextToken() + "占쏙옙 " + st.nextToken() + "占쏙옙 " + st.nextToken() + "占쏙옙";
+				%>
 				<tr>
 					<td><%=title%></td>
 					<td><%=author%></td>
 					<td><%=price%></td>
 					<td><%=date%></td>
-				
+
 				</tr>
 				<%
 					}
@@ -124,6 +124,7 @@
 				%>
 
 		</tbody>
+		
 	</table>
 
 </body>
