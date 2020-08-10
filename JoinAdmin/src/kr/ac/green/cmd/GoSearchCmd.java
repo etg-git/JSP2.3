@@ -8,5 +8,4 @@ public class GoSearchCmd implements ICmd{
 	public void action(HttpServletRequest request) {
 		request.setAttribute("nextPage", "updateDeleteSearch.jsp");
 	}
-	
 }

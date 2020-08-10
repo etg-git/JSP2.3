@@ -53,4 +53,8 @@ public class JoinInfo {
 		this.tel = tel;
 	}
 	
+	@Override
+	public String toString() {
+		return id + "";
+	}
 }

@@ -1,4 +1,4 @@
-<%@page import="kr.ac.green.dto.JoinInfo"%>
+<%@ page import = "kr.ac.green.dto.JoinInfo" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -29,12 +29,24 @@
     </tr>
   </thead>
   <tfoot>
-  	<th scope ="row" colspan = "4"> [<%= list.length %>]행rows </th>
+  	<%
+  		if(list == null) {
+  			
+  	%>
+  		<th scope ="row" colspan = "4"> [0]행rows </th>
+  	<%
+  		}else{
+  	%>
+  		<th scope ="row" colspan = "4"> [<%= list.length %>]행rows </th>
+  		
+  	<%
+  		}
+  	%>
   </tfoot>
   <tbody>
    
     	<%
-    		if(list.length == 0) {
+    		if(list == null || list.length == 0) {
     	%>	
     		 <tr>
     			<th scope="row">등록된 정보가 없습니다.</th>

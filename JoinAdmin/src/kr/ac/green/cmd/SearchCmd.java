@@ -18,7 +18,7 @@ public class SearchCmd implements ICmd{
 		Connection con = dao.connect();
 		dao.connect();
 		
-		JoinInfo info = dao.search(con, id);
+		JoinInfo[] info = dao.search(con, id);
 		
 		boolean flag = true;
 		if(info == null) {

@@ -41,23 +41,23 @@ public class JoinInfoDao implements DB_Info{
 			e.printStackTrace();
 		}
 	}
-	public JoinInfo search(Connection con, int id) {
-		JoinInfo info = null;
+	public JoinInfo[] search(Connection con, int id) {
+		JoinInfo[] info = null;
 		PreparedStatement pStmt = null;
 		ResultSet rs = null;
 		try {
 			pStmt = con.prepareStatement(SQLS[SEARCH]);
 			pStmt.setInt(1, id);
 			rs = pStmt.executeQuery();
-			
 			if(rs.next()) {
+				info = new JoinInfo[1];
 				int my_id = rs.getInt("id");
 				String name = rs.getString("name");
 				String password = rs.getString("password");
 				String nickName = rs.getString("nickName");
 				String tel = rs.getString("tel");
 				
-				info = new JoinInfo(my_id, name, password, nickName, tel);
+				info[0] = new JoinInfo(my_id, name, password, nickName, tel);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
