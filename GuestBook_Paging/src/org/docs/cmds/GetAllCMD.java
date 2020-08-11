@@ -29,11 +29,19 @@ public class GetAllCMD implements ICMD{
 		request.setAttribute("pageNum", pageNum);
 		
 		//페이지당 3개
-		Doc[] list = dao.getList(con, pageNum, 3);
+		int perPage = 3;
+		Doc[] list = dao.getList(con, pageNum, perPage);
 		dao.disconnect(con);
 		
-		request.setAttribute("list", list);
 		
+		int pageCount = totalDocsCount / perPage;
+		if(totalDocsCount % 3 > 0) {
+			pageCount++;
+		}
+		
+		request.setAttribute("pageCount", pageCount);
+		
+		request.setAttribute("list", list);
 		PageInfo info = (PageInfo)request.getSession().getAttribute("pageInfo");
 		
 		info.setRedirect(false);
