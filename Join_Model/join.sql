@@ -1,0 +1,9 @@
+CREATE TABLE join_info (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	name CHAR(20) NOT NULL,
+	password CHAR(20) NOT NULL,
+	nickName CHAR(20) NOT NULL,
+	tel CHAR(20) NOT NULL
+);
+
+DESC join_info;
